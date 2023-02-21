@@ -1,3 +1,4 @@
+"""Describe how you could use a single Python list to implement three stacks. - Modified this to be multistack"""
 class MultiStack:
     def __init__(self, stack_size, n_stack) -> None:
         self.list = [None] * (stack_size * n_stack)
@@ -122,18 +123,84 @@ class MultiStack:
 # print(f"is_empty: {stack.is_empty()}")
 # print(f"Print: {stack}")
 
-stack=  MultiStack(3, 4) # 4 stacks, 3 elements each
-print(f"Print: {stack}")
-print(f"is_empty: {stack.is_empty(1)}")
-print(f"is_full: {stack.is_full(2)}")
-print(stack.push(stack= 1, value= 10))
-print(stack.push(stack= 1, value= 20))
-print(stack.push(stack= 1, value= 30))
-# print(stack.push(stack= 1, value= 40))
-print(f"Peek: {stack.peek(1)}")
-print(f"pop: {stack.pop(1)}")
-print(f"Print: {stack}")
-print(f"Delete: {stack.clear(2)}")
-print(f"is_empty: {stack.is_empty(1)}")
-print(f"Print: {stack}")
+# stack=  MultiStack(3, 4) # 4 stacks, 3 elements each
+# print(f"Print: {stack}")
+# print(f"is_empty: {stack.is_empty(1)}")
+# print(f"is_full: {stack.is_full(2)}")
+# print(stack.push(stack= 1, value= 10))
+# print(stack.push(stack= 1, value= 20))
+# print(stack.push(stack= 1, value= 30))
+# print(stack.push(stack= 2, value= 40))
+# print(stack.push(stack= 2, value= 50))
+# print(stack.push(stack= 2, value= 60))
+# print(stack.push(stack= 3, value= 70))
+# print(stack.push(stack= 3, value= 80))
+# print(stack.push(stack= 3, value= 90))
+# print(f"Print: {stack}")
+# print(f"Peek: {stack.peek(3)}")
+# print(f"pop: {stack.pop(1)}")
+# print(f"Print: {stack}")
+# print(f"Delete: {stack.clear(2)}")
+# print(f"is_empty: {stack.is_empty(1)}")
+# print(f"Print: {stack}")
 
+
+"""How would you design a stack which, in addition to push and pop, has a function min which 
+returns the minimum element? Push, pop and min should all operate in O(1)."""
+class Node:
+    def __init__(self, value=None, next = None):
+        self.value = value
+        self.next: Node = next
+    
+    def __str__(self):
+        if self.next:
+            return f"Node(value= {self.value}, next= {self.next.value})"
+        return f"Node(value= {self.value})"
+
+class Stack:
+    def __init__(self):
+        self.top = None
+        self.mini_node= None
+    
+    def __str__(self):
+        return f"Stack(top= {self.top.value}, min= {self.mini_node.value})"
+
+    def min(self):
+        if not self.mini_node: return None
+        return self.mini_node.value
+
+    def push(self, value):
+        if self.mini_node and (self.mini_node.value < value):
+            self.mini_node= Node(value= self.mini_node.value, next= self.mini_node)
+        else:
+            self.mini_node= Node(value= value, next= self.mini_node)
+
+        self.top= Node(value= value, next= self.top)
+        return self.top
+
+    def pop(self):
+        if not self.top: return None
+
+        top= self.top
+        self.mini_node= self.mini_node.next
+        self.top= self.top.next
+        return top
+
+stack= Stack()
+print(f"min: {stack.min()}")
+print(f"push: {stack.push(5)}")
+print(f"min: {stack.min()}")
+print(f"push: {stack.push(5)}")
+print(f"push: {stack.push(3)}")
+print(f"min: {stack.min()}")
+print(f"push: {stack.push(7)}")
+print(f"push: {stack.push(2)}")
+print(f"min: {stack.min()}")
+print(f"Print: {stack}")
+print(f"Pop: {stack.pop()}")
+print(f"Pop: {stack.pop()}")
+print(f"Pop: {stack.pop()}")
+print(f"Pop: {stack.pop()}")
+print(f"Print: {stack}")
+print(f"min: {stack.min()}")
+print(f"Print: {stack}")
