@@ -186,21 +186,34 @@ class Stack:
         self.top= self.top.next
         return top
 
-stack= Stack()
-print(f"min: {stack.min()}")
-print(f"push: {stack.push(5)}")
-print(f"min: {stack.min()}")
-print(f"push: {stack.push(5)}")
-print(f"push: {stack.push(3)}")
-print(f"min: {stack.min()}")
-print(f"push: {stack.push(7)}")
-print(f"push: {stack.push(2)}")
-print(f"min: {stack.min()}")
-print(f"Print: {stack}")
-print(f"Pop: {stack.pop()}")
-print(f"Pop: {stack.pop()}")
-print(f"Pop: {stack.pop()}")
-print(f"Pop: {stack.pop()}")
-print(f"Print: {stack}")
-print(f"min: {stack.min()}")
-print(f"Print: {stack}")
+# stack= Stack()
+# print(f"min: {stack.min()}")
+# print(f"push: {stack.push(5)}")
+# print(f"min: {stack.min()}")
+# print(f"push: {stack.push(5)}")
+# print(f"push: {stack.push(3)}")
+# print(f"min: {stack.min()}")
+# print(f"push: {stack.push(7)}")
+# print(f"push: {stack.push(2)}")
+# print(f"min: {stack.min()}")
+# print(f"Print: {stack}")
+# print(f"Pop: {stack.pop()}")
+# print(f"Pop: {stack.pop()}")
+# print(f"Pop: {stack.pop()}")
+# print(f"Pop: {stack.pop()}")
+# print(f"Print: {stack}")
+# print(f"min: {stack.min()}")
+# print(f"Print: {stack}")
+
+
+"""
+Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore, in real 
+life, we would likely start a new stack when the previous stack exceeds some threshold. 
+Implement a data structure SetOfStacks that mimics this. SetOfStacks should be composed of 
+several stacks and should create a new stack once the previous one exceeds capacity, 
+SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack (that is, 
+pop() should return the same values as it would if there were just a single stack).
+
+Follow Up: 
+Implement a function popAt (int index) which performs a pop operation on a specific sub - stack.
+"""

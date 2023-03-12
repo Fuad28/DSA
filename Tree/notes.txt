@@ -1,0 +1,56 @@
+A tree is a nonlinear data structure with hierarchical relationships between its elements 
+without having any cycle, it is basically reversed from a real life tree.
+
+Properties:
+    - Represent hierarchical data 
+    - Each node has two components : data and a link to its sub category
+    - Base category and sub categories under it
+
+Why a Tree?
+    -Quicker and Easier access to the data 
+    -Store hierarchical data, like folder structure, organization structure, XML/HTML data.
+    - There are many different types of data structures which performs better in various situations
+        Binary Search Tree, AVL, Red Black Tree, Trie
+
+Terminologies (image at pg 382)
+    - Root: A node that doesn't have a parent e.g N1
+    - Edge: Link between parent and child
+    - Leaf: A node that doesn't have children e.g N7, N8, N5 & N6
+    - Sibling: Children of same parents e.g N7 and N8 are siblings since they're both from parent N4.
+    - Ancestor: The parent, grandparents and great grandparents of a node e.g N4, N2 & N1 are the ancestors of N7
+    - Depth of node: length of path from root to Node. we count the edges. e.g depth of N4 is 2. 
+    - Height of node: length of path from Node to leaf. we count the edges. e.g depth of N3 is 1.
+    - Depth of tree: Depth of root Node e.g the depth of tree is always 0
+    - Height of tree: the total number of edges from the root node to the leaf node in the longest path e.g depth of tree is 3.
+
+Binary Tree:
+    -  Binary trees are the data structures in which each node has at most two children, 
+        often referred to as the left and right children.
+    - It can have one child or two children.
+    -  Binary tree is a family of data structure (BST, Heap tree, AVL, red black trees, Syntax tree). i.e these trees are types of
+        binary trees in terms of number of children constraints.
+    
+    Why Binary tree?:
+        - Binary trees are a prerequisite for mode advanced trees like BST, AVL, Red Black Trees
+        - Huffman coding problem , heap priority problem and expression parsing problems can be solved efficiently using BTs.
+
+    Types of BTs:
+        - 1. Full binary tree: A full binary tree can be defined as a binary tree in which all the nodes have 0 or two children. 
+            In other words, the full binary tree can be defined as a binary tree in which all the nodes have two children except 
+            the leaf nodes.
+        - 2. Perfect binary tree: All non leave nodes have two children and are at the same depth.
+        - 3. Complete Binary Tree: A complete binary tree is a binary tree in which every level, except possibly the last,
+            is completely filled, and all nodes in the last level are as far left as possible.
+        - 4 . Balanced binary tree: All leaf nodes are same depth from the root node.
+
+    - Binary trees can be created using arrays and linked list.
+    - Using Linked list:
+        - A node will consist of its data, a ref to its left node and the second to its right node.
+
+    Traversal of a BT:
+        - Depth first search
+            - Preorder traversal: Root -> Left subtree -> Right subtree
+            - Inorder traversal
+            - Post order traversal
+        Breadth first search
+            - Level order traversal
