@@ -50,7 +50,14 @@ Binary Tree:
     Traversal of a BT:
         - Depth first search
             - Preorder traversal: Root -> Left subtree -> Right subtree
-            - Inorder traversal
-            - Post order traversal
+                i.e N1 - N2 - N4 - N9 - N10 - N5 - N3 -N6 - N7
+    
+            - Inorder traversal: Left subtree -> Root -> Right subtree
+                i.e N9 - N4 - N10 - N2 - N5 - N1 - N6 - N3 - N7
+
+            - Post order traversal: Left subtree -> Right subtree -> Root
+                 i.e N9 - N10 - N4 - N5 - N2 - N6 - N7 - N3 - N1
+
         Breadth first search
-            - Level order traversal
+            - Level order traversal: We traverse nodes level by level. We start from the left.
+                i.e N1 - N2 - N3 - N4 - N5 - N6 - N7 - N9 - N10
