@@ -31,17 +31,20 @@ Binary Tree:
         binary trees in terms of number of children constraints.
     
     Why Binary tree?:
-        - Binary trees are a prerequisite for mode advanced trees like BST, AVL, Red Black Trees
+        - Binary trees are a prerequisite for more advanced trees like BST, AVL, Red Black Trees
         - Huffman coding problem , heap priority problem and expression parsing problems can be solved efficiently using BTs.
 
     Types of BTs:
         - 1. Full binary tree: A full binary tree can be defined as a binary tree in which all the nodes have 0 or two children. 
             In other words, the full binary tree can be defined as a binary tree in which all the nodes have two children except 
             the leaf nodes.
-        - 2. Perfect binary tree: All non leave nodes have two children and are at the same depth.
-        - 3. Complete Binary Tree: A complete binary tree is a binary tree in which every level, except possibly the last,
+        - 2. Complete Binary Tree: A complete binary tree is a binary tree in which every level, except possibly the last,
             is completely filled, and all nodes in the last level are as far left as possible.
-        - 4 . Balanced binary tree: All leaf nodes are same depth from the root node.
+        - 3. Perfect binary tree: All non leaf nodes have two children and are at the same depth. PBT = FBT + CBT
+        
+        - 4. Balanced binary tree: The difference between the height of the left subtree and the height is the right subtree is less than 1.
+            Performance wise, it's same as a linked list.
+        - 5. Degenrate binary tree: Every internal node has only 1 child.
 
     - Binary trees can be created using arrays and linked list.
     - Using Linked list:
