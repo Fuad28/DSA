@@ -64,3 +64,7 @@ Binary Tree:
         Breadth first search
             - Level order traversal: We traverse nodes level by level. We start from the left.
                 i.e N1 - N2 - N3 - N4 - N5 - N6 - N7 - N9 - N10
+
+        Note: Level order traversal is often use to perform insert, delete and search operations due to the fact that they're implemented using queues which are more performant thank stack (which is used by the DFS traversals).
+
+        Deleting a node: This is done by replacing the node to be deleted by the deepest node (the last node that'll be reached during level order traversal) and deleting the deepest node from its original location.
