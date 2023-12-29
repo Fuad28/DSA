@@ -1,0 +1,7 @@
+
+- Hashing is a method of sorting and indexing data. The idea behind hashing is to allow large amounts of data to be indexed using keys commonly created by formulas
+- It is time efficient in case of SEARCH Operation
+    - array O(logn)
+    - linked list O(n)
+    - Tree O(n)
+    - hashing O(1)/O(n)
