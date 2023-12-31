@@ -1,0 +1,39 @@
+- Sorting refers to arranging data in a particular format : either ascending or descending.
+
+- Types of sorting algorithms:
+    - Space used:
+        - In place: Sorting algorithms which does not require any extra space for sorting e.g Bubble sort
+        - Out of place: Sorting algorithms which requires an extra space for sorting e.g Merge sort
+
+    - Stability:
+        - Stable: If a sorting algorithm after sorting the contents does not change the sequence of similar content, then this sorting is called stable sorting 
+            e.g insertion sort. pg616
+        - Unstable: If a sorting algorithm after sorting the contents changes the sequence of similar content, then this sorting is called stable sorting 
+            e.g quick sort.
+
+- Sorting terminologies:
+    - Increasing Order: If successive element is greater than the previous one e.g: 1, 3, 5, 7, 9 ,11
+    - Decreasing Order: If successive element is less than the previous one e.g 11, 9, 7, 5, 3, 1
+    - Non Increasing Order: If successive element is less than or equal to its previous element in the sequence e.g 11, 9, 7, 5, 5, 3, 1
+    - Non Decreasing Order: If successive element is greater than or equal to its previous element in the sequence e.g 1, 3, 5, 7, 7, 9, 11
+
+
+- Sorting algorithms:
+    - Bubble sort: We repeatedly compare each pair of adjacent items and swap them if they are in the wrong order.
+    - Selection sort:  we repeatedly find the minimum element and move it to the sorted part of array to make unsorted part sorted.
+    - Insertion sort: similar so selection sort except that, we pick the first element of the unsorted array and place it in its right position in the sorted array.
+    - Bucket sort:
+        - Create buckets and distribute elements of array into buckets
+            - Number of buckets = round(Sqrt(number of elements))
+            - Appropriate bucket = ceil(value * number of buckets / max_value)
+        - Sort buckets individually
+        - Merge buckets after sorting
+    - Merge sort
+    - Quick sort
+    - Heap sort
+
+    - The one selected is based on:
+        - Stability
+        - Space efficiency
+        - Time efficiency
+     
