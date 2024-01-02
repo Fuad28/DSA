@@ -99,3 +99,49 @@ class Solution:
                 output_arr.extend(freq_map[i])
 
         return output_arr
+
+
+#  Product of Array Except Self: https://leetcode.com/problems/product-of-array-except-self/ Medium
+
+# solution 1
+class Solution: # time: O(n^2) space: O(n)
+    def productExceptSelf(self, nums: List[int]) -> List[int]:                
+        prod_arr= []
+
+        for i in range(len(nums)):
+            exempt_arr= nums[0: i] + nums[i+1:]
+            prod= 1
+
+            for j in exempt_arr:
+                prod *= j
+            
+            prod_arr.append(prod)
+
+        
+        return prod_arr
+
+
+# Solution 2
+class Solution:  # time: O(n) space: O(n)
+    def productExceptSelf(self, nums: List[int]) -> List[int]:                
+        output_arr= [1] * len(nums)
+        prefix, suffix= 1, 1
+
+        for i in range(len(nums)):
+            if i != 0:
+                output_arr[i]= nums[i -1] * prefix
+                prefix= output_arr[i]
+
+        for i in range(len(nums) -1, -1, -1):
+            if i != len(nums) - 1:
+                output_arr[i]= output_arr[i] * nums[i + 1] * suffix
+                suffix= nums[i + 1] * suffix
+
+        
+        return output_arr
+
+
+
+
+        
+        
