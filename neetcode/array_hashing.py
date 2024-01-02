@@ -82,23 +82,20 @@ class Solution:  # time: O(mn) space: O(n)
 
 # Top K Frequent Elements: https://leetcode.com/problems/top-k-frequent-elements/ Medium
 
-class Solution:  # time: O(n) space: O(n)
+class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        mapper = defaultdict(self.zero)
+        mapper = {}
         freq_map = {count: [] for count in range(1, len(nums) + 1)}
         output_arr = []
 
         for num in nums:
-            mapper[num] += 1
+            mapper[num] = mapper.get(num, 0) + 1
 
-        for num in mapper:
-            freq_map[mapper[num]].append(num)
+        for num, count in mapper.items():
+            freq_map[count].append(num)
 
         for i in range(len(nums), -1, -1):
             if len(output_arr) != k:
                 output_arr.extend(freq_map[i])
 
         return output_arr
-
-    def zero(self):
-        return 0
