@@ -143,5 +143,29 @@ class Solution:  # time: O(n) space: O(n)
 
 
 
+# Valid sudoku: https://leetcode.com/problems/valid-sudoku/
+class Solution: # time: O(1), space: O(1)
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        cols= defaultdict(set)
+        rows= defaultdict(set)
+        squares= defaultdict(set) # key is (row/3, col/3)
+
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == ".":
+                    continue
+                
+                if (board[r][c] in rows[r] or 
+                    board[r][c] in cols[r] or 
+                    board[r][c] in squares[(r//3,c//3)]
+                ):
+
+                    return False
+
+                cols[c].add(board[r][c])
+                rows[r].add(board[r][c])
+                squares[(r//3, c//3)].add(board[r][c])
         
+        return True
+
         
