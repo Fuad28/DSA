@@ -143,7 +143,7 @@ class Solution:  # time: O(n) space: O(n)
 
 
 
-# Valid sudoku: https://leetcode.com/problems/valid-sudoku/
+# Valid sudoku: https://leetcode.com/problems/valid-sudoku/ Medium
 class Solution: # time: O(1), space: O(1)
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         cols= defaultdict(set)
@@ -169,3 +169,84 @@ class Solution: # time: O(1), space: O(1)
         return True
 
         
+
+# Encode and Decode Strings: https://www.lintcode.com/problem/659/ Medium
+class Solution: # time: O(n), space: O(n)
+    """
+    @param: strs: a list of strings
+    @return: encodes a list of strings to a single string.
+    """
+    def encode(self, strs):
+        encoded_str= ""
+
+        for word in strs:
+            encoded_str += str(len(word)) + "#" + word
+        
+        return encoded_str
+
+    """
+    @param: str: A string
+    @return: decodes a single string to a list of strings
+    """
+    
+    def decode(self, str):
+        i= 0
+        output_arr= []
+
+        while i < len(str):
+            j = i
+
+            while str[j] != "#":
+                j += 1
+            
+        
+            word_length= int(str[i: j])
+            i = j + 1
+            j = i + word_length
+
+            output_arr.append(str[i : j])
+
+
+        return output_arr
+
+
+# Valid strings: https://leetcode.com/problems/valid-parentheses/ Easy
+class Solution: # time: O(n), space: O(n)
+    def isValid(self, s: str) -> bool:
+        parentheses= {")": "(", "}": "{", "]": "["}
+        stack= []
+
+        for i in s:
+            if i not in parentheses:
+                stack.append(i) # it's an open parenthesis
+            
+            else:
+                if len(stack) == 0:
+                    return False
+
+                if stack[-1] == parentheses[i]:
+                    stack.pop()
+                
+                else:
+                    return False
+            
+        return len(stack) == 0
+
+
+            
+#Longest Consecutive Sequence: https://leetcode.com/problems/longest-consecutive-sequence/ medium
+class Solution: # time: O(n), space: O(n)
+    def longestConsecutive(self, nums: List[int]) -> int:
+        numSet= set(nums)
+        longest= 0
+
+        for i in nums:
+
+            if (i - 1) not in nums: # start of a sequence
+                seq_length= 0
+                while (i + seq_length) in numSet:
+                    seq_length += 1
+            
+                longest = max(longest, seq_length)
+        
+        return longest
