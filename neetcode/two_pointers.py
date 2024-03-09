@@ -1,5 +1,5 @@
 
-
+from types import List
 # Valid palindrome: https://leetcode.com/problems/valid-palindrome/description/ Easy
 
 # solution 1
@@ -56,3 +56,40 @@ class Solution: # time: O(n), space: O(1)
             ord("0") <= ord(char) <= ord("9")
         ) 
 
+
+# Two Sum II - Input Array Is Sorted: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+# solution 1
+class Solution: # time: O(n^2), space: O(1)
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i= 0
+
+        while i <= len(numbers):
+            j = i + 1
+
+            while j < len(numbers):
+                if numbers[i] + numbers[j] == target:
+                    return [i+1, j+1]
+                
+                j += 1
+            
+            i += 1
+                
+
+# solution 2
+class Solution: # time: O(n), space: O(1)
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        left, right= 0, len(numbers) -1
+
+        while True:
+            _sum = numbers[left] + numbers[right]
+            
+            if _sum > target:
+                left += 1
+
+            elif _sum > target:
+                right -= 1
+
+            else:
+                return [left+1, right+1]
+
+    
