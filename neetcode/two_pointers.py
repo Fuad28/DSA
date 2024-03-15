@@ -139,4 +139,52 @@ class Solution: # time: O(n^2), space: O(1)
         
         return count
 
+
+# Trapping Rain Water: https://leetcode.com/problems/trapping-rain-water/description/
+
+# solution 1
+class Solution: # time: O(n), space: O(n)
+    def trap(self, height: List[int]) -> int:
+        total_water_trapped = 0
+
+        for i in range(len(height)):
+            left_max = right_max = 0
+            left_arr = height[:i]
+            right_arr= height[i: ]
+
+            if len(left_arr):
+                left_max = max(left_arr)
+            
+            if len(right_arr):
+                right_max = max(right_arr)
+
+            water_trapped = min(left_max, right_max) - height[i]
+
+            if water_trapped > 0:
+                total_water_trapped += water_trapped
+        
+        return total_water_trapped
+
+
+# solution 2
+class Solution: # time: O(n^2), space: O(1)
+    def trap(self, height: List[int]) -> int:
+
+        l, r = 0, len(height) - 1 
+        left_max, right_max = height[l], height[r]
+        total_water_trapped = 0
+
+        while l < r:
+            if left_max < right_max:
+                l += 1
+                left_max = max(left_max, height[l])
+                total_water_trapped += left_max - height[l]
+            
+            else:
+                r -= 1
+                right_max = max(right_max, height[r])
+                total_water_trapped += right_max - height[r]
+        
+        return total_water_trapped
+
         
